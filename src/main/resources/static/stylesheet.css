@@ -1,0 +1,62 @@
+.form_title
+{
+	color: rgba(51, 209, 3, 0.9);
+	font-size: 1.7em;
+	padding: 0 10px 0 10px;
+}
+#formulaire
+{
+	background-color: rgb(223, 245, 214);
+	padding: 5px 15px 5px 15px;
+	width: 50%;
+	position: relative;
+	top: 30px;
+	left: 25%;
+	text-align: left;
+	z-index: 2;
+	margin-bottom: 50px;
+}
+fieldset
+{
+	margin-bottom: 15px;
+}
+#formulaire input
+{
+	width: 70%;
+	right: 0;
+	height: 1.5em;
+	margin: 10px 0 10px 0;
+	margin-left: 10%;
+	border: 1px solid rgb(170,170,170);
+	border-radius: 3px;
+	padding-left: 5px;
+}
+#sexe
+{
+	width: 200px;
+	display: flex;
+}
+#sexe input
+{
+	height: 1em;
+	margin: 2px 10px 0 0;
+}
+textarea
+{
+	width: 80%;
+	margin-left: 10%;
+}
+.btn_form
+{
+	background-color: rgb(30, 180, 68);
+	border-color: rgb(27, 155, 59);
+	color: white;
+	font-size: 1.2em;
+	box-shadow: 0 2px rgb(27, 155, 59);
+	border-radius: 3px;
+	cursor: pointer;
+}
+.form_btn
+{
+	margin: 20px 5px 20px 5px;
+}

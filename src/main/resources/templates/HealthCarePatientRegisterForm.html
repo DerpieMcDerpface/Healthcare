@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="viewport" content="width=device-width" />
+<title>HealthCare Patient Register Form</title>
+<meta name="description"
+	content="Inscrivez-vous sur HealthCare en remplissant ce formulaire">
+</head>
+
+<body>
+
+	<!--En-tête / Navigation-->
+	<header>
+		<h2>Formulaire d'inscription</h2>
+	</header>
+
+	<section id="form_inscription">
+
+		<div id="formulaire">
+			<form class="form_field" action="#" method="post">
+
+				<fieldset>
+					<legend class="form_title">Vos informations personnelles</legend>
+					<div>
+						<div id="sexe">
+							<label for="homme">Homme</label> 
+								<input type="radio" name="sexe" class="homme" value="homme">
+							<label for="femme">Femme</label>
+								<input type="radio" name="sexe" class="femme" value="femme">
+						</div>
+							
+							<input type="number" th:field="*{id_patient}">
+						<label for="nom_patient">Nom :</label> 
+							<input type="text"th:field="*{nom_patient}" name="nom_patient" id="nom_patient">
+							<br>
+						<label for="prenom_patient">Prénom :</label> 
+							<input th:field="${prenom_patient}" type="text" name="prenom_patient" id="prenom_patient">
+							<br>
+						<label for="age_patient">Age :</label>
+							<input th:field="${prenom_patient}" type="number" name="age_patient" id="age_patient" min="5" max="115">
+							<br>
+						<label for="adresse_patient">Adresse :</label>
+							<input th:field="${adresse_patient}" type="text" name="adresse_patient" id="adresse_patient">
+							<br>
+						<label for="cp_patient">Code Postal :</label>
+							<input th:field="${cp_patient}" type="number" name="cp_patient" id="cp_patient">
+							<br>
+						<label for="ville_patient">Ville :</label>
+							<input th:field="${ville_patient}" type="text" name="ville_patient" id="ville_patient">
+							<br>
+						<label for="mail_patient">E-mail :</label>
+							<input th:field="${mail_patient}" type="email" name="mail_patient" id="mail_patient"> 
+							<br>
+						<label for="telephone_patient">N° téléphone :</label> 
+							<input th:field="${telephone_patient}" type="tel" name="telephone_patient" id="numtel_patient">
+							<br>
+						<label for="numCV_patient">N° carte vitale :</label> 
+							<input th:field="${numCV_patient}" type="number" name="numCV_patient" id="numCV_patient" min="5" max="115">
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<legend class="form_title">Votre état de santé</legend>
+					<div>
+						<div id="msg_form">
+							<label for="textarea">Indiquez vous problèmes de santé antérieurs ou actuels  :</label>
+							<br>
+							<textarea th:field="${sante_patient}" id="sante_patient" name="sante_patient" placeholder="Message">Ex : diabète, opérations, etc</textarea>
+						</div>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend class="form_title">Votre médecin traitant</legend>
+					<div>
+						<div id="sexe">
+							<label for="homme">Homme</label> 
+								<input type="radio" name="sexe" id="homme" value="homme"> 
+							<label for="femme">Femme</label>
+								<input type="radio" name="sexe" id="femme" value="femme">
+						</div>
+
+						<label for="nom_medtraitant">Nom :</label> 
+							<input type="text"th:field="*{nom_medtraitant}" name="nom_medtraitant" id="nom_medtraitant">
+							<br>
+						<label for="prenom_medtraitant">Prénom :</label> 
+							<input th:field="${prenom_medtraitant}" type="text" name="prenom_medtraitant" id="prenom_medtraitant">
+							<br>
+						<label for="telephone_medtraitant">N° téléphone :</label> 
+							<input th:field="${telephone_medtraitant}" type="tel" name="telephone_medtraitant" id="telephone_medtraitant">
+							<br>
+						<label for="mail_medtraitant">E-mail :</label>
+							<input th:field="${mail_medtraitant}" type="email" name="mail_medtraitant" id="mail_medtraitant"> 
+							<br>
+						<label for="adresse_medtraitant">Adresse du cabinet :</label>
+							<input type="text" name="adresse_medtraitant" id="adresse_medtraitant">
+							<br>
+						<label for="cp_medtraitant">Code Postal :</label>
+							<input th:field="${cp_medtraitant}" type="number" name="cp_patient" id="cp_patient">
+							<br>
+						<label for="ville_medtraitant">Ville :</label>
+							<input th:field="${ville_medtraitant}" type="text" name="ville_patient" id="ville_patient">
+							<br>
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<legend class="form_title">Personne à contacter en cas d'urgence</legend>
+					<div>
+						<div id="sexe">
+							<label for="homme">Homme</label>
+								<input type="radio" name="sexe"	class="homme" value="homme"> 
+							<label for="femme">Femme</label>
+								<input type="radio" name="sexe" class="femme" value="femme">
+						</div>
+
+						<label for="nom_contacturgence">Nom :</label> 
+							<input type="text"th:field="*{nom_contacturgence}" name="nom_contacturgence" id="nom_contacturgence">
+							<br>
+						<label for="prenom_contacturgence">Prénom :</label> 
+							<input th:field="${prenom_contacturgence}" type="text" name="prenom_contacturgence" id="prenom_contacturgence">
+							<br>
+						<label for="telephone_contacturgence">N° téléphone :</label> 
+							<input th:field="${telephone_contacturgence}" type="tel" name="telephone_contacturgence" id="telephone_contacturgence">
+							<br>
+						<label for="mail_contacturgence">E-mail :</label>
+							<input th:field="${mail_contacturgence}" type="email" name="mail_contacturgence" id="mail_contacturgence"> 
+							<br>
+					</div>
+				</fieldset>
+				
+				<div class="form_btn">
+					<button type="submit" class="btn_form" style="width: 350px">Enregistrer mes informations</button>
+				</div>
+
+			</form>
+		</div>
+	</section>
+	
+</body>
+</html>
