@@ -1,9 +1,14 @@
 package sogeti.model;
 
 public class User {
+
     private int id;
-    private String name, surname, mail, password;
-    private boolean isDoctor;
+    private String name;
+    private String surname;
+    private String mail;
+    private String password;
+
+
 
     public int getId() {
         return id;
@@ -45,11 +50,4 @@ public class User {
         this.password = password;
     }
 
-    public boolean isDoctor() {
-        return isDoctor;
-    }
-
-    public void setDoctor(boolean doctor) {
-        isDoctor = doctor;
-    }
 }
