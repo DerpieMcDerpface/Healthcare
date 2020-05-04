@@ -25,19 +25,20 @@ public class User {
     @Column (name = "password")
     private String password;
 
+
     @Column (name = "securityCode")
     private String securityCode;
 
     public User(){
     }
 
-    public User(String name, String surname, String username, String email, String password, String securityCode) {
+    public User(String name, String surname, String username, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.securityCode = securityCode;
+        this.securityCode = "";
     }
 
     public int getId() {
