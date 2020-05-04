@@ -1,26 +1,17 @@
 package sogeti.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
+    @Entity
     @Table(name = "ROLE")
     public class Role {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int idRole;
+        private int id;
 
         @Column(name = "name")
         private String name;
-
-        @ManyToMany
-        @JoinTable (name = "User_Role_Association",
-                    joinColumns = @JoinColumn(name = "idRole"),
-                    inverseJoinColumns = @JoinColumn(name = "idUser"))
-        private List<User> users = new ArrayList<>();
-
 
         public Role() {
         }
@@ -29,8 +20,8 @@ import java.util.List;
             this.name = name;
         }
 
-        public int getIdRole() {
-            return idRole;
+        public int getId() {
+            return id;
         }
 
         public String getName() {
@@ -41,9 +32,6 @@ import java.util.List;
             this.name = name;
         }
 
-        public List<User> getUsers() {
-             return users;
-         }
     }
 
 

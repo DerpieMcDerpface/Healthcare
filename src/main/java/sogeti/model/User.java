@@ -1,10 +1,6 @@
 package sogeti.model;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "USER")
@@ -12,7 +8,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUser;
+    private int id;
 
     @Column (name = "name")
     private String name;
@@ -32,12 +28,6 @@ public class User {
     @Column (name = "securityCode")
     private String securityCode;
 
-    @ManyToMany
-    @JoinTable (name = "User_Role_Association",
-                joinColumns = @JoinColumn (name = "idUser"),
-                inverseJoinColumns = @JoinColumn (name = "idRole"))
-    private List<Role> roles = new ArrayList<>();
-
     public User(){
     }
 
@@ -50,12 +40,12 @@ public class User {
         this.securityCode = securityCode;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getId() {
+        return id;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -104,10 +94,6 @@ public class User {
 
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
     }
 
 }
