@@ -24,7 +24,7 @@ public class ConnexionController {
     public ModelAndView connect(@RequestParam(name = "username") String username,
                                 @RequestParam(name="password") String password,
                                 Model model){
-        if(userService.getUsername(username).getPassword().equals(password)){
+        if(userService.findUserByUsername(username) != null && userService.findUserByUsername(username).getPassword().equals(password)){
             return new ModelAndView("homepage.html");
         }
         else{
