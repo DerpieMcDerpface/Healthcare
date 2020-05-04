@@ -18,11 +18,15 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findByUsername(String username) {
+    public User getUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    public User findByEmail(String email) {
+    public User getEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public User getPassword(String password){
+        return userRepository.findByPassword(password);
     }
 }
