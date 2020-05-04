@@ -1,55 +1,62 @@
-
-.register_body
+.form_title
 {
-	background-color: #D4EDF7;
+	color: rgba(51, 209, 3, 0.9);
+	font-size: 1.7em;
+	padding: 0 10px 0 10px;
 }
-.register_container
+#formulaire
 {
-	width: 600px;
-	margin: auto;
+	background-color: rgb(223, 245, 214);
+	padding: 5px 15px 5px 15px;
+	width: 50%;
+	position: relative;
+	top: 30px;
+	left: 25%;
+	text-align: left;
+	z-index: 2;
+	margin-bottom: 50px;
 }
-.register_title
+fieldset
 {
-	color: #B84E14;
-	font-size: 2.2em;
-	font-weight: bold;
-	margin-top: 50px;
+	margin-bottom: 15px;
 }
-.register_form
+#formulaire input
 {
-	width: 400px;
-	margin: 30px;
-}
-.register_form label
-{
-	color: #FC600A;
-	font-size: 1.1em;
-	position:relative;
-	display:block;
-	overflow:auto;
-}
-.register_form input {
-	position: absolute;
-	right:20px;
-	height: 1.3em;
+	width: 70%;
+	right: 0;
+	height: 1.5em;
+	margin: 10px 0 10px 0;
+	margin-left: 10%;
 	border: 1px solid rgb(170,170,170);
 	border-radius: 3px;
 	padding-left: 5px;
 }
-.register_form input:hover
+#sexe
 {
-	border: 1px solid #B84E14;;
+	width: 200px;
+	display: flex;
 }
-.register_submit
+#sexe input
 {
-	color: #341809;
-	background-color: #B84E14;
-	font-size: 1.1em;
-	font-weight: bold;
+	height: 1em;
+	margin: 2px 10px 0 0;
+}
+textarea
+{
+	width: 80%;
+	margin-left: 10%;
+}
+.btn_form
+{
+	background-color: rgb(30, 180, 68);
+	border-color: rgb(27, 155, 59);
+	color: white;
+	font-size: 1.2em;
+	box-shadow: 0 2px rgb(27, 155, 59);
+	border-radius: 3px;
 	cursor: pointer;
 }
-.register_btn
+.form_btn
 {
-	position: relative;
-	margin: auto;
+	margin: 20px 5px 20px 5px;
 }
