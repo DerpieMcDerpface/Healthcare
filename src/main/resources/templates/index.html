@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <meta name="description"
+          content="Page de connexion">
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="mail"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-</form>
+<h1>Connexion</h1>
+<div id="connexion-zone">
+
+    <form method="POST" th:action="@{/connexion}">
+
+        <label><b>Nom d'utilisateur</b></label>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+        <input type="submit" id="submit" value="Connexion" >
+    </form>
+</div>
+
+<div id="other">
+    <p>Créer un compte</p>
+    <p>Mot de passe oublié ?</p>
+</div>
+
 </body>
 </html>
