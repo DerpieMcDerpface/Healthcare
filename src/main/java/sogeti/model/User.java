@@ -25,6 +25,7 @@ public class User {
     @Column (name = "password")
     private String password;
 
+
     @Column (name = "securityCode")
     private String securityCode;
 
@@ -95,5 +96,4 @@ public class User {
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
     }
-
 }
