@@ -1,31 +1,45 @@
 package sogeti.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "USER")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column (name = "name")
     private String name;
+
+    @Column (name = "surname")
     private String surname;
-    private String mail;
+
+    @Column (name = "username")
+    private String username;
+
+    @Column (name = "email")
+    private String email;
+
+    @Column (name = "password")
     private String password;
 
-<<<<<<< HEAD
 
-=======
     @Column (name = "securityCode")
     private String securityCode;
 
     public User(){
     }
 
-    public User(String name, String surname, String username, String email, String password, String securityCode) {
+    public User(String name, String surname, String username, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.securityCode = securityCode;
+        this.securityCode = "";
     }
->>>>>>> master
 
     public int getId() {
         return id;
@@ -51,12 +65,20 @@ public class User {
         this.surname = surname;
     }
 
-    public String getMail() {
-        return mail;
+    public String getUsername() {
+        return username;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -67,8 +89,6 @@ public class User {
         this.password = password;
     }
 
-<<<<<<< HEAD
-=======
     public String getSecurityCode() {
         return securityCode;
     }
@@ -76,7 +96,4 @@ public class User {
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
     }
-
-
->>>>>>> master
 }

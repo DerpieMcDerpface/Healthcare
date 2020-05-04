@@ -29,7 +29,4 @@ public class AccountHandlingController {
         return new ModelAndView ("homepage.html");
     }
 
-    
-
-
 }
