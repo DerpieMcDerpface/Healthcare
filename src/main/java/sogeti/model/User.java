@@ -1,8 +1,6 @@
 package sogeti.model;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "USER")
@@ -30,19 +28,16 @@ public class User {
     @Column (name = "securityCode")
     private String securityCode;
 
-    @ManyToMany
-    private Set<Role> roles;
-
     public User(){
     }
 
-    public User(String name, String surname, String username, String email, String password, String securityCode) {
+    public User(String name, String surname, String username, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.securityCode = securityCode;
+        this.securityCode = "";
     }
 
     public int getId() {
@@ -99,14 +94,6 @@ public class User {
 
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 
 }
