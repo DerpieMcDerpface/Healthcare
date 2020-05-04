@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .form_title
 {
 	color: rgba(51, 209, 3, 0.9);
@@ -60,3 +61,73 @@ textarea
 {
 	margin: 20px 5px 20px 5px;
 }
+=======
+
+.bg-lightblue{
+    background-color:#D4EDF7;
+}
+
+.bg-darkblue{
+    background-color:#347B98;
+}
+
+.bg-lightorange{
+    background-color:#FC600A;
+}
+
+.bg-darkorange{
+    background-color:#B84E14;
+}
+
+.bg-brown{
+    background-color:#341809;
+}
+
+.font-lightblue{
+    color:#D4EDF7;
+}
+
+.font-darkblue{
+    color:#347B98;
+}
+
+.font-lightorange{
+    color:#FC600A;
+}
+
+.font-darkorange{
+    color:#B84E14;
+}
+
+.font-brown{
+    color:#341809;
+}
+
+.register-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.register-title {
+    grid-area: 1 / 2 / 2 / 4;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.register-labels {
+    grid-area: 2 / 2 / 4 / 3;
+    font-size: 20px;
+    font-weight:bold;
+}
+
+.register-inputs {
+    grid-area: 2 / 3 / 4 / 4;
+    font-size: 19px;
+}
+
+
+
+>>>>>>> master

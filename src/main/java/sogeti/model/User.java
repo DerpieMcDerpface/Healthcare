@@ -8,7 +8,24 @@ public class User {
     private String mail;
     private String password;
 
+<<<<<<< HEAD
 
+=======
+    @Column (name = "securityCode")
+    private String securityCode;
+
+    public User(){
+    }
+
+    public User(String name, String surname, String username, String email, String password, String securityCode) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.securityCode = securityCode;
+    }
+>>>>>>> master
 
     public int getId() {
         return id;
@@ -50,4 +67,16 @@ public class User {
         this.password = password;
     }
 
+<<<<<<< HEAD
+=======
+    public String getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
+    }
+
+
+>>>>>>> master
 }

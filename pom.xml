@@ -55,7 +55,24 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 			<version>2.2.6.RELEASE</version>
 		</dependency>
+<<<<<<< HEAD
 	</dependencies>
+=======
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.2.2.RELEASE</version>
+        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+    </dependencies>
+>>>>>>> master
 
 	<build>
 		<plugins>
@@ -81,8 +98,10 @@
         			<artifactId>heroku-maven-plugin</artifactId>
        				 <version>3.0.2</version>
 				<configuration>
+					<appName>healthcareapptest</appName>
   					<processTypes>
-     						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* sogeti.HealthCareApplication</web>
+     						<web>java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
+							</web>
   					</processTypes>
 				</configuration>
       			</plugin>
