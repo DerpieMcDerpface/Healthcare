@@ -33,6 +33,8 @@ public class User {
     @ManyToMany
     private Set<Role> roles;
 
+    public User(){
+    }
 
     public User(String name, String surname, String username, String email, String password, String securityCode) {
         this.name = name;
