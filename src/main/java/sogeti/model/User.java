@@ -96,4 +96,5 @@ public class User {
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
     }
+
 }
