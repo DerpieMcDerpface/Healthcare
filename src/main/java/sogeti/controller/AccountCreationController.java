@@ -17,6 +17,7 @@ public class AccountCreationController {
 
     @GetMapping("/register")
     public ModelAndView showRegisterUser(Model model) {
+        
         User user = new User();
         model.addAttribute("user", user);
         return new ModelAndView("createaccount.html");
