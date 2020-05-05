@@ -58,6 +58,15 @@ public class AccountHandlingController<user> {
     @PostMapping("/doctor")
     public ModelAndView saveUserDoctor(@ModelAttribute("user")User user, Model model){
         service.save(user);
+        /*String recipientMail = user.getEmail();
+        String titleMail = "Votre inscription à Healthcare App";
+        String bodyMail = "Bonjour Madame, Monsieur, \n Vous avez été inscrit sur l'application HealthCare par votre Médecin traitant. \n"
+                + "Veuillez trouver ci-dessous les informations de connexion de votre compte : (Conservez bien ce mail) \n"
+                + "     Nom d'utilisateur : "+user.getUsername()+"\n"
+                + "     Mot de passe : "+user.getPassword();
+        sendMail email= new sendMail("recipientMail","titleMail","bodyMail");
+         */
         return new ModelAndView ("homepage.html");
     }
+
 }

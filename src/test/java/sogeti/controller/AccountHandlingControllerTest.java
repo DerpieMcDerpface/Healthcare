@@ -38,8 +38,8 @@ public class AccountHandlingControllerTest {
     @Test
     public void testSaveUser() throws Exception {
         mockMvc.perform(post("/account/create"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("homepage.html"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("homepage.html"));
     }
 
     @Test
@@ -53,8 +53,8 @@ public class AccountHandlingControllerTest {
     @Test
     public void testSaveUserDoctor() throws Exception {
         mockMvc.perform(post("/account/create"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("homepage.html"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("homepage.html"));
     }
 
 }
