@@ -33,10 +33,10 @@ public class AccountHandlingController<user> {
     }
 
     @GetMapping("/profile")
-    public ModelAndView showProfilePage(@ModelAttribute("user") User user) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("user", user);
-        return new ModelAndView("profile" , model);
+    public ModelAndView showProfilePage(Model model) {
+        User user = service.getAuthUser();
+        model.addAttribute("user", user);
+        return new ModelAndView("profile.html");
     }
 
     @GetMapping("/profile/edit")
