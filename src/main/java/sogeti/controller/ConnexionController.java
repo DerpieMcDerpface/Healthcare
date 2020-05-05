@@ -27,6 +27,7 @@ public class ConnexionController {
                                 Model model){
         if(userService.findUserByUsername(username) != null && userService.findUserByUsername(username).getPassword().equals(password)){
             User user = userService.findUserByUsername(username);
+            userService.setAuthUser(user);
             model.addAttribute("user", user);
             return new ModelAndView("homepage.html");
         }

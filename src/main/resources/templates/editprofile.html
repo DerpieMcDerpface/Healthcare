@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+
+    .font-lightorange {
+        color: #FC600A;
+    }
+
+    .bg-darkorange {
+        background-color: #B84E14;
+    }
+
+    .bg-lightblue {
+        background-color : #D4EDF7;
+    }
+
+    .profile-main {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .profile-title {
+        grid-area: 1 / 2 / 2 / 5;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .profile-labels {
+        grid-area: 2 / 2 / 5 / 3;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .profile-data {
+        grid-area: 2 / 3 / 5 / 5;
+        font-size: 19px;
+    }
+
+    .profile-buttons {
+        padding-left: 25%;
+    }
+
+</style>
+
 <body>
-edit profile
+<div class="profile-main">
+    <div class="profile-title font-darkorange">
+        Affichage du profil
+    </div>
+    <div class="profile-labels font-lightorange">
+        <label for="profile-name">Nom :</label><br><br>
+        <label for="profile-surname">Prénom :</label><br><br>
+        <label for="profile-username">Nom d'utilisateur :</label><br><br>
+        <label for="profile-email">Adresse e-mail :</label><br><br>
+        <label for="profile-password">Code de sécurité :</label><br><br>
+    </div>
+    <div class="profile-data font-lightorange">
+        <p th:text="${user.surname}">User surname</p>
+        <p th:text="${user.name}">User name</p>
+        <p th:text="${user.username}">User username</p>
+        <p th:text="${user.email}">User email</p>
+        <p th:text="${user.securityCode}">User security code</p>
+    </div>
+</div>
+<div class="profile-buttons">
+    <a href="#" role="button" th:href = "@{/account/profile/edit}">Modifier le profil</a>
+    <a href="#" role="button" th:href = "@{/account/profile/disable}">Désactiver le compte</a>
+</div>
 </body>
 </html>

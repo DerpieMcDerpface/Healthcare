@@ -29,14 +29,18 @@ public class AccountHandlingController<user> {
     @PostMapping("/create")
     public ModelAndView saveUser(@ModelAttribute("user") User user, Model model) {
         service.save(user);
-        return new ModelAndView ("homepage.html");
+        return new ModelAndView("homepage.html");
     }
 
     @GetMapping("/profile")
-    public ModelAndView showProfilePage(@ModelAttribute("user") User user) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("user", user);
-        return new ModelAndView("profile" , model);
+    public ModelAndView showProfilePage(Model model) {
+        User user = service.getAuthUser();
+        if (user == null) {
+            return new ModelAndView("404.html");
+        } else {
+            model.addAttribute("user", user);
+            return new ModelAndView("profile.html");
+        }
     }
 
     @GetMapping("/profile/edit")
@@ -49,15 +53,15 @@ public class AccountHandlingController<user> {
     }
 
     @GetMapping("/doctor")
-    public ModelAndView showCreateAccountByDoctor(Model model){
+    public ModelAndView showCreateAccountByDoctor(Model model) {
         User user = new User();
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         return new ModelAndView("createaccount.html");
     }
 
     @PostMapping("/doctor")
-    public ModelAndView saveUserDoctor(@ModelAttribute("user")User user, Model model){
+    public ModelAndView saveUserDoctor(@ModelAttribute("user") User user, Model model) {
         service.save(user);
-        return new ModelAndView ("homepage.html");
+        return new ModelAndView("homepage.html");
     }
 }
