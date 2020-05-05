@@ -30,9 +30,10 @@ public class User {
     @Column (name = "securityCode")
     private String securityCode;
 
+    /*
     @ManyToMany
     private Set<Role> roles;
-
+    */
     public User(){
     }
 
@@ -101,6 +102,7 @@ public class User {
         this.securityCode = securityCode;
     }
 
+    /*
     public Set<Role> getRoles() {
         return roles;
     }
@@ -108,5 +110,5 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
+    */
 }
