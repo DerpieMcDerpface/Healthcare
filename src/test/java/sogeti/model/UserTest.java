@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@WebMvcTest
-@RunWith(SpringRunner.class)
+//@WebMvcTest
+//@RunWith(SpringRunner.class)
 public class UserTest {
 
     User userTest;
@@ -45,7 +45,7 @@ public class UserTest {
 
     @Test
     public void testPassword() {
-        userTest.setName("Batman123");
+        userTest.setPassword("Batman123");
         assertEquals("Batman123", userTest.getPassword());
     }
 }
