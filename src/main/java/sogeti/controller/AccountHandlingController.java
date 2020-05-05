@@ -44,8 +44,21 @@ public class AccountHandlingController<user> {
     }
 
     @GetMapping("/profile/edit")
-    public ModelAndView showProfileEditPage(User user) {
-        return new ModelAndView("editprofile.html");
+    public ModelAndView showProfileEditPage(Model model) {
+        User user = service.getAuthUser();
+        if (user == null) {
+            return new ModelAndView("404.html");
+        } else {
+            model.addAttribute("user", user);
+            return new ModelAndView("editprofile.html");
+        }
+    }
+
+    @PostMapping("/profile/edit")
+    public ModelAndView editUser(User user, Model model) {
+        service.save(user);
+        model.addAttribute("user", user);
+        return new ModelAndView("profile.html");
     }
 
     @GetMapping("/profile/disable")
