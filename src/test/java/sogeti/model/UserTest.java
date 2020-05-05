@@ -28,7 +28,7 @@ public class UserTest {
     @Test
     public void testSurname() {
         userTest.setSurname("Wayne");
-        assertEquals("Wayne", userTest.getSurname();
+        assertEquals("Wayne", userTest.getSurname());
     }
 
     @Test
