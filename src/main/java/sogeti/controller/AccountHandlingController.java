@@ -8,6 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 import sogeti.model.User;
 import sogeti.model.service.UserService;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping(path = "/account")
 public class AccountHandlingController<user> {
@@ -28,6 +31,24 @@ public class AccountHandlingController<user> {
         service.save(user);
         return new ModelAndView ("homepage.html");
     }
+
+    @GetMapping("/profile")
+    public ModelAndView showProfilePage() {
+        User usr = new User();
+        usr.setName("John");
+        usr.setSurname("Doe");
+        usr.setEmail("test");
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("usr1", usr);
+        return new ModelAndView("profile" , model);
+    }
+    @GetMapping("/profile/edit")
+    public ModelAndView showProfileEditPage(User user) {
+        return new ModelAndView("editprofile.html");
+    }
+    @GetMapping("/profile/disable")
+    public void disableProfile() {
+
 
     @GetMapping("/doctor")
     public ModelAndView showCreateAccountByDoctor(Model model){
