@@ -42,13 +42,15 @@ public class AccountHandlingController<user> {
         model.put("usr1", usr);
         return new ModelAndView("profile" , model);
     }
+
     @GetMapping("/profile/edit")
     public ModelAndView showProfileEditPage(User user) {
         return new ModelAndView("editprofile.html");
     }
+
     @GetMapping("/profile/disable")
     public void disableProfile() {
-
+    }
 
     @GetMapping("/doctor")
     public ModelAndView showCreateAccountByDoctor(Model model){
