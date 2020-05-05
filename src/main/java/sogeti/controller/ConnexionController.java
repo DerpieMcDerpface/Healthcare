@@ -15,12 +15,12 @@ public class ConnexionController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(path="/connexion")
+    @GetMapping(path="/connect")
     public ModelAndView showIndexPage(Model model){
         return new ModelAndView("index.html");
     }
 
-    @PostMapping(path="/connexion")
+    @PostMapping(path="/connect")
     public ModelAndView connect(@RequestParam(name = "username") String username,
                                 @RequestParam(name="password") String password,
                                 Model model){
