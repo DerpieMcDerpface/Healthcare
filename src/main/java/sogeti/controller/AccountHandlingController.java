@@ -33,7 +33,7 @@ public class AccountHandlingController<user> {
     public ModelAndView showCreateAccountByDoctor(Model model){
         User user = new User();
         model.addAttribute("user",user);
-        return new ModelAndView("createaccountdoctor.html");
+        return new ModelAndView("createaccount.html");
     }
 
     @PostMapping("/doctor")
