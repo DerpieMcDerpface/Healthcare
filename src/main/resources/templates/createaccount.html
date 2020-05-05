@@ -4,42 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="/css/style.css" rel="stylesheet">
+
     <title>HealthCare Register Form</title>
     <meta name="description"
           content="Inscrivez-vous sur HealthCare en remplissant ce formulaire">
 </head>
 
-<body class="register_body">
-    <div class="register_container">
-        <div class="register_title">Formulaire de création de compte</div>
+<body class="register-body bg-lightblue">
+    <div class="register-main">
+        <div class="register-title font-darkorange">
+            Formulaire de création de compte
+        </div>
 
-        <div class="register_form" >
-            <form method="post" th:action="@{/register}" th:object="${user}">
-                <label for="register_name">Nom :
-                    <input th:field="*{name}" name="register_name" id="register_name" placeholder="Wayne" type="text">
-                </label>
-                    <br>
-                <label for="register_surname">Prénom :
-                    <input th:field="*{surname}" name="register_surname" id="register_surname" placeholder="Bruce" type="text">
-                </label>    
-                    <br>
-                <label for="register_username">Nom d'utilisateur :
-                    <input th:field="*{username}" name="register_username" id="register_username" placeholder="WayneB" type="text">
-                </label>
-                    <br>
-                <label for="register_email">Adresse e-mail :
-                    <input th:field="*{mail}" name="register_email" id="register_email" placeholder="bruce.wayne@gmail.com" type="email">
-                </label>
-                    <br>
-                <label for="register_password">Mot de passe :
-                    <input th:field="*{password}" name="register_password" id="register_password" type="password">
-                </label>
-                    <br>
-                <div class="register_btn">
-                    <input class="register_submit" name="register_submit" type="submit" value="Créer mon compte">
-                </div>
-                
+        <div class="register-labels font-lightorange">
+            <label for="register-name">Nom :</label><br><br>
+            <label for="register-surname">Prénom :</label><br><br>
+            <label for="register-username">Nom d'utilisateur :</label><br><br>
+            <label for="register-email">Adresse e-mail :</label><br><br>
+            <label for="register-password">Mot de passe :</label><br><br>
+        </div>
+        <div class="register-inputs">
+            <form method="post" th:action="@{/account/create}" th:object="${user}">
+            <input th:field="*{name}" name="register-name" id="register-name" placeholder="Wayne" type="text"><br><br>
+            <input th:field="*{surname}" name="register-surname" id="register-surname" placeholder="Bruce" type="text"><br><br>
+            <input th:field="*{username}" name="register-username" id="register-username" placeholder="WayneB" type="text"><br><br>
+            <input th:field="*{email}" name="register-email" id="register-email" placeholder="bruce.wayne@gmail.com" type="email"><br><br>
+            <input th:field="*{password}" name="register-password" id="register-password" type="password"><br><br>
+            <input id="register-submit" name="register-submit" type="submit" value="Créer mon compte">
             </form>
         </div>
     </div>

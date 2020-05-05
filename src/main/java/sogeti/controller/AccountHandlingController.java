@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/account")
-public class AccountHandlingController {
+public class AccountHandlingController<user> {
 
 
     @Autowired
@@ -49,5 +49,17 @@ public class AccountHandlingController {
     @GetMapping("/profile/disable")
     public void disableProfile() {
 
+
+    @GetMapping("/doctor")
+    public ModelAndView showCreateAccountByDoctor(Model model){
+        User user = new User();
+        model.addAttribute("user",user);
+        return new ModelAndView("createaccountdoctor.html");
+    }
+
+    @PostMapping("/doctor")
+    public ModelAndView saveUserDoctor(@ModelAttribute("user")User user, Model model){
+        service.save(user);
+        return new ModelAndView ("homepage.html");
     }
 }
