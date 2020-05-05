@@ -33,13 +33,9 @@ public class AccountHandlingController<user> {
     }
 
     @GetMapping("/profile")
-    public ModelAndView showProfilePage() {
-        User usr = new User();
-        usr.setName("John");
-        usr.setSurname("Doe");
-        usr.setEmail("test");
+    public ModelAndView showProfilePage(@ModelAttribute("user") User user) {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("usr1", usr);
+        model.put("user", user);
         return new ModelAndView("profile" , model);
     }
 
