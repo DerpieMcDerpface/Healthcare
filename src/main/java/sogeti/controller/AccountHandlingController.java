@@ -29,7 +29,7 @@ public class AccountHandlingController<user> {
     @PostMapping("/create")
     public ModelAndView saveUser(@ModelAttribute("user") User user, Model model) {
         service.save(user);
-        return new ModelAndView("homepage.html");
+        return new ModelAndView("index.html");
     }
 
     @GetMapping("/profile")
