@@ -26,14 +26,15 @@ public class ConnexionController {
     public RedirectView connect(@RequestParam(name = "username") String username,
                                 @RequestParam(name="password") String password,
                                 Model model){
-        if(userService.findUserByUsername(username) != null && userService.findUserByUsername(username).getPassword().equals(password)){
-            User user = userService.findUserByUsername(username);
-            userService.setAuthUser(user);
-            model.addAttribute("user", user);
-            return new RedirectView("/homepage");
+
+        if(userService.findUserByUsername(username) != null) {
+            User userToConnect = userService.findUserByUsername(username);
+            if(userToConnect.getPassword().equals(password) && userToConnect.isActivated()){
+                User user = userService.findUserByUsername(username);
+                userService.setAuthUser(user);
+                return new RedirectView("/homepage");
+            }            
         }
-        else{
-            return new RedirectView("/connect");
-        }
+        return new RedirectView("/connect");
     }
 }

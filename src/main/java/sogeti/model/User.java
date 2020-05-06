@@ -26,6 +26,8 @@ public class User {
     @Column (name = "password")
     private String password;
 
+    @Column (name = "activatedAccount", nullable = false)
+    private boolean activated = true;
 
     @Column (name = "securityCode")
     private String securityCode;
@@ -33,13 +35,14 @@ public class User {
     public User(){
     }
 
-    public User(String name, String surname, String username, String email, String password) {
+    public User(String name, String surname, String username, String email, String password, boolean activated) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.email = email;
         this.password = password;
         this.securityCode = "";
+        this.activated = true;
     }
 
     public int getId() {
@@ -97,5 +100,9 @@ public class User {
     public void setSecurityCode(String securityCode) {
         this.securityCode = securityCode;
     }
+
+    public boolean isActivated() { return activated; }
+
+    public void setActivated(boolean activated) { this.activated = activated; }
 
 }
