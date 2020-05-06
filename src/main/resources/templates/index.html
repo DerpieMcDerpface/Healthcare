@@ -3,31 +3,66 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Connexion</title>
     <meta name="description"
-          content="Page de connexion">
+          content="HealthCare - Page de connexion">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-<h1>Connexion</h1>
-<div id="connect-zone">
 
-    <form method="POST" th:action="@{/connect}">
+<body class="index-main bg-lightblue">
 
-        <label><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
-
-        <label><b>Mot de passe</b></label>
-        <input type="password" placeholder="Entrer le mot de passe" name="password" required>
-
-        <input type="submit" id="submit" value="Connexion" >
-    </form>
+<div class="index-title font-darkorange">
+    Connexion
 </div>
 
-<div id="other">
-    <p>Créer un compte</p>
-    <p>Mot de passe oublié ?</p>
+<div class="index-labels font-lightorange">
+    <label for="index-username" class="index-labels">Nom d'utilisateur</label><br><br>
+    <label for="index-password" class="index-labels">Mot de passe</label><br><br>
+</div>
+
+<div class="index-inputs"></div>
+<form method="POST" th:action="@{/connect}">
+    <input th:field="*{username}" type="text" name="index-username" id="index-username" placeholder="Entrer le nom d'utilisateur" name="username" required><br><br>
+    <input th:field="*{password}" type="password" name="index-password" id="index-password" placeholder="Entrer le mot de passe" name="password" required><br><br>
+    <input id="index-submit" name="index-submit" type="submit" value="Connexion" >
+</form>
+</div>
+
+<div id="index-other">
+    <a th:href="@{/account/create}" class="font-darkblue">Créer un compte</a>
+    <a th:href="@{/password/reset}" class="font-darkblue">Mot de passe oublié ?</a>
 </div>
 
 </body>
+
+<style>
+    .index-main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    .index-title {
+        grid-area: 1 / 2 / 2 / 4;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .index-labels {
+        grid-area: 2 / 2 / 3 / 3;
+        font-size: 20px;
+        font-weight:bold;
+    }
+    .index-inputs {
+        grid-area: 2 / 3 / 3 / 4;
+        font-size: 19px;
+    }
+    .index-other {
+        grid-area: 3 / 2 / 4 / 3;
+        font-size: 16px;
+    }
+
+    </style>
+
 </html>

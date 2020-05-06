@@ -11,29 +11,28 @@
           content="Inscrivez-vous sur HealthCare en remplissant ce formulaire">
 </head>
 
-<body class="register-body bg-lightblue">
-    <div class="register-main">
-        <div class="register-title font-darkorange">
-            Formulaire de création de compte
-        </div>
+<body class="register-main bg-lightblue">
 
-        <div class="register-labels font-lightorange">
-            <label for="register-name">Nom :</label><br><br>
-            <label for="register-surname">Prénom :</label><br><br>
-            <label for="register-username">Nom d'utilisateur :</label><br><br>
-            <label for="register-email">Adresse e-mail :</label><br><br>
-            <label for="register-password">Mot de passe :</label><br><br>
-        </div>
-        <div class="register-inputs">
-            <form method="post" th:action="@{/account/create}" th:object="${user}">
+    <div class="register-title font-darkorange">
+        Formulaire de création de compte
+    </div>
+
+    <div class="register-labels font-lightorange">
+        <label for="register-name">Nom :</label><br><br>
+        <label for="register-surname">Prénom :</label><br><br>
+        <label for="register-username">Nom d'utilisateur :</label><br><br>
+        <label for="register-email">Adresse e-mail :</label><br><br>
+        <label for="register-password">Mot de passe :</label><br><br>
+    </div>
+    <div class="register-inputs">
+        <form method="post" th:action="@{/account/create}" th:object="${user}">
             <input th:field="*{name}" name="register-name" id="register-name" placeholder="Wayne" type="text"><br><br>
             <input th:field="*{surname}" name="register-surname" id="register-surname" placeholder="Bruce" type="text"><br><br>
             <input th:field="*{username}" name="register-username" id="register-username" placeholder="WayneB" type="text"><br><br>
             <input th:field="*{email}" name="register-email" id="register-email" placeholder="bruce.wayne@gmail.com" type="email"><br><br>
             <input th:field="*{password}" name="register-password" id="register-password" type="password"><br><br>
             <input id="register-submit" name="register-submit" type="submit" value="Créer mon compte">
-            </form>
-        </div>
+        </form>
     </div>
 </body>
 </html>
