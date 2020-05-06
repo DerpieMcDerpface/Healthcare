@@ -25,15 +25,14 @@ public class ConnexionController {
     public ModelAndView connect(@RequestParam(name = "username") String username,
                                 @RequestParam(name="password") String password,
                                 Model model){
-        User userToConnect = userService.findUserByUsername(username);
-        if(userToConnect != null && userToConnect.getPassword().equals(password) && userToConnect.isActivated() == true ){
-            User user = userService.findUserByUsername(username);
-            userService.setAuthUser(user);
-            model.addAttribute("user", user);
-            return new ModelAndView("homepage.html");
+        if(userService.findUserByUsername(username) != null) {
+            User userToConnect = userService.findUserByUsername(username);
+            if(userToConnect.getPassword().equals(password) && userToConnect.isActivated()){
+                User user = userService.findUserByUsername(username);
+                userService.setAuthUser(user);
+                return new ModelAndView("homepage.html");
+            }
         }
-        else{
-            return new ModelAndView("index.html");
-        }
+        return new ModelAndView("index.html");
     }
 }
