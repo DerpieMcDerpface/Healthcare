@@ -7,8 +7,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.junit.Test;
+import sogeti.model.User;
+import sogeti.model.service.NewsService;
 import sogeti.model.service.UserService;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -26,6 +29,8 @@ public class AccountHandlingControllerTest {
     private MockMvc mockMvc;
     @MockBean
     private UserService service;
+    @MockBean
+    private NewsService newsService;
 
     @Test
     public void testShowCreateAccountPage() throws Exception{
@@ -53,8 +58,34 @@ public class AccountHandlingControllerTest {
     @Test
     public void testSaveUserDoctor() throws Exception {
         mockMvc.perform(post("/account/create"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("homepage.html"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("index.html"));
+    }
+
+    @Test
+    public void testShowProfileErrorPage() throws Exception{
+        mockMvc.perform(get("/account/profile"))
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("404.html"))
+                .andExpect(model().size(1));
+    }
+
+    @Test
+    public void testShowProfilePage() throws Exception{
+        User user = new User("billy","bosch","bb","blabla@gmail.com","123");
+        when(service.getAuthUser()).thenReturn(user);
+        mockMvc.perform(get("/account/profile"))
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("profile.html"))
+                .andExpect(model().size(1));
+    }
+
+    @Test
+    public void testShowProfileEditPage() throws Exception {
+        mockMvc.perform(get("/account/profile/edit"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("editprofile.html"))
+                .andExpect(model().size(1));
     }
 
 }
