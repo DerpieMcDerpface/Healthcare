@@ -26,9 +26,8 @@ public class HomepageController {
         Map<String, Object> model = new HashMap<>();
 
         newsList = newsService.getAllNews();
-        News news = newsList.get(0);
 
-        model.put("news", news);
+        model.put("newsList", newsList);
         return new ModelAndView("homepage.html", model);
     }
 }
