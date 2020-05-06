@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import sogeti.model.User;
 import sogeti.model.service.UserService;
 
@@ -22,17 +23,18 @@ public class ConnexionController {
     }
 
     @PostMapping(path="/connect")
-    public ModelAndView connect(@RequestParam(name = "username") String username,
+    public RedirectView connect(@RequestParam(name = "username") String username,
                                 @RequestParam(name="password") String password,
                                 Model model){
+
         if(userService.findUserByUsername(username) != null) {
             User userToConnect = userService.findUserByUsername(username);
             if(userToConnect.getPassword().equals(password) && userToConnect.isActivated()){
                 User user = userService.findUserByUsername(username);
                 userService.setAuthUser(user);
-                return new ModelAndView("homepage.html");
-            }
+                return new RedirectView("/homepage");
+            }            
         }
-        return new ModelAndView("index.html");
+        return new RedirectView("/connect");
     }
 }

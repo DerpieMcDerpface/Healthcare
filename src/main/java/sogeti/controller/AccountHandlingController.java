@@ -28,7 +28,7 @@ public class AccountHandlingController<user> {
     public ModelAndView saveUser(@ModelAttribute("user") User user, Model model) {
         user.setActivated(true);
         service.save(user);
-        return new ModelAndView("homepage.html");
+        return new ModelAndView("index.html");
     }
 
     @GetMapping("/profile")
