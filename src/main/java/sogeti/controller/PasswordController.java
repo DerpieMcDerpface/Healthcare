@@ -55,7 +55,7 @@ public class PasswordController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView resetPassword(@RequestParam("username") String username,
+    public RedirectView resetPassword(@RequestParam("username") String username,
                                       @RequestParam("password") String password,
                                       @RequestParam("confirmpwd") String confirmPwd,
                                       @RequestParam("security-code") String securityCode,
@@ -68,7 +68,7 @@ public class PasswordController {
         }
         if(password.equals(confirmPwd) && user.getSecurityCode().equals(securityCode)){
             service.updateUserPassword(user, password);
-            return new ModelAndView("index.html");
+            return new RedirectView("/connect");
         }
         else{
             System.out.println("On est dans le else de post edit pass");
@@ -78,7 +78,7 @@ public class PasswordController {
                 System.out.println("securityCode = " + securityCode);
                 System.out.println("actual : "+ user.getSecurityCode());
             }
-            return new ModelAndView("editpassword.html");
+            return new RedirectView("/password/edit");
         }
     }
 
