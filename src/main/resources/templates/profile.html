@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <header class="header-homepage font-darkblue">
@@ -14,14 +14,13 @@
 <body class="bg-lightblue">
     <div class="profile-main">
         <div class="profile-title font-darkorange">
-            Affichage du profil
+            <h2>Affichage du profil</h2>
         </div>
         <div class="profile-labels font-lightorange">
             <label for="profile-name">Nom :</label><br><br>
             <label for="profile-surname">Prénom :</label><br><br>
             <label for="profile-username">Nom d'utilisateur :</label><br><br>
             <label for="profile-email">Adresse e-mail :</label><br><br>
-            <label for="profile-password">Code de sécurité :</label><br><br>
         </div>
         <div class="profile-data font-lightorange">
             <p th:text="${user.surname}">User surname</p>
@@ -36,24 +35,7 @@
     </div>
 </body>
 
-
 <style>
-    .font-lightorange {
-        color: #FC600A;
-    }
-
-    .font-darkorange {
-        color: #B84E14;
-    }
-
-    .bg-darkorange {
-        background-color: #B84E14;
-    }
-
-    .bg-lightblue {
-        background-color: #D4EDF7;
-    }
-
     .profile-main {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -82,7 +64,6 @@
     .profile-buttons {
         padding-left: 25%;
     }
-
 </style>
 
 </html>
