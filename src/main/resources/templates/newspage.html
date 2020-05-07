@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare App - Page de l'Actualité</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/web-fonts-with-css/css/fontawesome-all.min.css">
+</head>
+
+<style>
+@font-face
+{
+	font-family: "fontawesome";
+	src: url("fonts/fontawesome-webfont.woff");
+    text-rendering: optimizeLegibility;
+}
+html {
+	font-size: 100%;
+  }
+body
+{
+	margin: 0;
+	padding: 0;
+}
+.bg-lightblue{
+    background-color:#D4EDF7;
+}
+.bg-darkblue{
+    background-color:#347B98;
+}
+.bg-lightorange{
+    background-color:#FC600A;
+}
+.bg-darkorange{
+    background-color:#B84E14;
+}
+.bg-brown{
+    background-color:#341809;
+}
+.font-lightblue{
+    color:#D4EDF7;
+}
+.font-darkblue{
+    color:#347B98;
+}
+.font-lightorange{
+    color:#FC600A;
+}
+.font-darkorange{
+    color:#B84E14;
+}
+.font-brown{
+    color:#341809;
+}
+
+.main-homepage {
+display: grid;
+height: 100px;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(8, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 2px;
+}
+
+.header-homepage{ grid-area: 1 / 1 / 2 / 3;}
+.nav-homepage { grid-area: 2 / 1 / 3 / 3;
+ height :50px;}
+.news1 { grid-area: 3 / 1 / 4 / 2; }
+.news2 { grid-area: 3 / 2 / 4 / 3; }
+.news3 { grid-area: 4 / 1 / 5 / 2; }
+.news4 { grid-area: 4 / 2 / 5 / 3; }
+.news5 { grid-area: 5 / 1 / 6 / 2; }
+.news6 { grid-area: 5 / 2 / 6 / 3; }
+.news7 { grid-area: 6 / 1 / 7 / 2; }
+.news8 { grid-area: 6 / 2 / 7 / 3; }
+.news9 { grid-area: 7 / 1 / 8 / 2; }
+.news10 { grid-area: 7 / 2 / 8 / 3; }
+.footer { grid-area: 8 / 1 / 9 / 3; }
+
+.header-homepage h1 {
+    margin: 25px;
+    font-size: 3em;
+}
+.nav-homepage a {
+    text-decoration: none;
+    color:#347B98;
+}
+.nav-homepage ul {
+    display: flex;
+    margin-right: 5%;
+}
+.nav-homepage li {
+    display: flex;
+    margin: auto;
+    font-size: 1.7em;
+    font-weight: bold;
+    color:#347B98;
+}
+.footer a, .footer p {
+    color: white;
+    font-weight: bold;
+}
+.footer ul {
+    display: inline-block;
+    margin: 0 5% 0 5%;
+
+}
+.footer li {
+    display: flex;
+    margin: auto;
+    color:#347B98;
+}
+.footer a {
+    text-decoration: none;
+}
+.footer li p {
+    margin: 0;
+}
+
+section img {
+    display: block;
+    float: left;
+    margin: 10px;
+    width: 100px;
+}
+
+section h2 {
+    color:#347B98;
+}
+
+section p {
+
+
+</style>
+
+<body>
+
+<div class="main-homepage bg-lightblue">
+
+    <header class="header-homepage font-darkblue">
+        <h1>HEALTHCARE APP : Actualités</h1>
+    </header>
+
+    <nav class="nav-homepage bg-brown">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+            <li><a href="homepage.html">Accueil</a></li>
+            <li> | </li>
+            <li><a href="newspage.html">News</a></li>
+            <li> | </li>
+            <li><a href="#">Conseils</a></li>
+            <li> | </li>
+            <li><a href="#">Sessions</a></li>
+            <li> | </li>
+            <li><a href="#">Médiathèque</a></li>
+            <li> | </li>
+            <li><a href="#">Poser une question</a></li>
+        </ul>
+    </nav>
+
+    <section class="news1 bg-lightblue" >
+        <h2 th:text="${news.title}"></h2>
+        <img th:src="@{/.png}"/>
+        <p th:text="${news.longDescription}"></p>
+        <p th:text="${news.shortDescription}"></p>
+    </section>
+
+    <section class ="news2 bg-lightblue">
+        <h2 th:text="${news.title}"></h2>
+        <img th:src="@{/.png}"/>
+        <p th:text="${news.longDescription}"></p>
+        <p th:text="${news.shortDescription}"></p>
+    </section>
+
+    <section class ="news3 bg-lightblue">
+        <h2 th:text="${news.title}"></h2>
+        <img th:src="@{/.png}"/>
+        <p th:text="${news.longDescription}"></p>
+        <p th:text="${news.shortDescription}"></p>
+    </section>
+
+    <section class ="news4 bg-lightblue">
+        <h2 th:text="${news.title}"></h2>
+        <img th:src="@{/.png}"/>
+        <p th:text="${news.longDescription}"></p>
+        <p th:text="${news.shortDescription}"></p>
+    </section>
+
+
+    <div class="footer font-darkblue bg-brown">
+        <ul>
+            <li><a href="homepage.html">Accueil</a></li>
+            <li><a href="newspage.html">News</a></li>
+            <li><a href="#">Conseils</a></li>
+            <li><a href="#">Sessions</a></li>
+            <li><a href="#">Médiathèque</a></li>
+            <li><a href="#">Poser une question</a></li>
+        </ul>
+        <ul>
+            <p>Contacter un administrateur du site :</p>
+            <li><p>HealthCare Helpers</p></li>
+            <li><p>254 Avenue Réelle 67000 Strasbourg</p></li>
+            <li><p>Tel : 03.88.36.xx.xx</p></li>
+            <li><p>Mail : healthcar.help@admin.fr</p></li>
+        </ul>
+        <ul>
+            <h4><a href="#">Mentions légales</a></h4>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

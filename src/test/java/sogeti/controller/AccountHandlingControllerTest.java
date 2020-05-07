@@ -1,5 +1,7 @@
 package sogeti.controller;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -11,13 +13,13 @@ import sogeti.model.User;
 import sogeti.model.service.NewsService;
 import sogeti.model.service.UserService;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+import static org.junit.Assert.assertThat;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -31,6 +33,14 @@ public class AccountHandlingControllerTest {
     private UserService service;
     @MockBean
     private NewsService newsService;
+
+    private User userWayne;
+
+    @Before
+    public void init(){
+        userWayne = new User("Wayne","Bruce","WayneB","bru@gmail.com","123");
+        when(service.findUserByUsername("WayneB")).thenReturn(userWayne);
+    }
 
     @Test
     public void testShowCreateAccountPage() throws Exception{
@@ -87,5 +97,16 @@ public class AccountHandlingControllerTest {
                 .andExpect(view().name("editprofile.html"))
                 .andExpect(model().size(1));
     }
+
+   /* @Test
+    public void testEditUser() throws Exception{
+        User user = service.findUserByUsername("WayneB");
+        user.setName("bob");
+        mockMvc.perform(post("/account/profile/edit")
+                .param("user-name","bob"))
+                .andExpect(status().isOk())
+        .andExpect(jsonPath("$[1].name",is("bob")));
+
+    }*/
 
 }
