@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
+import sogeti.model.User;
 import sogeti.model.service.UserService;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -26,8 +27,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ConnexionControllerTest {
 
-    private ConnexionController connexionController;
-
     @MockBean
     UserService service;
 
@@ -39,9 +38,10 @@ public class ConnexionControllerTest {
 
     Model model;
 
+    private User user;
+
     @Before
     public void setUp(){
-        UserService service = Mockito.mock(UserService.class);
         given(service.findUserByUsername("testuser").getPassword()).willReturn("password");
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
         // Mockito.when(userService.findUserByUsername("testuser").getPassword()).thenReturn("password");
@@ -72,9 +72,4 @@ public class ConnexionControllerTest {
                 .andExpect(redirectedUrl("/index.html"));
     }
 
-    @Test
-    public void testFunctionConnect(){
-        connexionController.connect("testuser","password",model);
-
-    }
 }
