@@ -26,12 +26,12 @@
     </div>
     <div class="register-inputs">
         <form method="post" th:action="@{/account/create}" th:object="${user}">
-            <input th:field="*{name}" name="register-name" id="register-name" placeholder="Wayne" type="text"><br><br>
-            <input th:field="*{surname}" name="register-surname" id="register-surname" placeholder="Bruce" type="text"><br><br>
-            <input th:field="*{username}" name="register-username" id="register-username" placeholder="WayneB" type="text"><br><br>
-            <input th:field="*{email}" name="register-email" id="register-email" placeholder="bruce.wayne@gmail.com" type="email"><br><br>
-            <input th:field="*{password}" name="register-password" id="register-password" type="password"><br><br>
-            <input id="register-submit" name="register-submit" type="submit" value="Créer mon compte">
+            <input th:field="*{name}" name="name" id="register-name" placeholder="Wayne" type="text"><br><br>
+            <input th:field="*{surname}" name="surname" id="register-surname" placeholder="Bruce" type="text"><br><br>
+            <input th:field="*{username}" name="username" id="register-username" placeholder="WayneB" type="text"><br><br>
+            <input th:field="*{email}" name="email" id="register-email" placeholder="bruce.wayne@gmail.com" type="email"><br><br>
+            <input th:field="*{password}" name="password" id="register-password" type="password"><br><br>
+            <input id="register-submit" name="submit" type="submit" value="Créer mon compte">
         </form>
     </div>
 </body>
