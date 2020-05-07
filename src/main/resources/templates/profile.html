@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <header class="header-homepage font-darkblue">
@@ -28,18 +28,18 @@
             <p th:text="${user.username}">User username</p>
             <p th:text="${user.email}">User email</p>
         </div>
+        <div class="profile-buttons">
+            <a href="#" role="button" th:href="@{/account/profile/edit}">Modifier le profil</a>
+            <a href="#" role="button" th:href="@{/account/profile/disable}">Désactiver le compte</a>
+        </div>
     </div>
-    <div class="profile-buttons">
-        <a href="#" role="button" th:href="@{/account/profile/edit}">Modifier le profil</a>
-        <a href="#" role="button" th:href="@{/account/profile/disable}">Désactiver le compte</a>
-    </div>
-</body>
 
+</body>
 <style>
     .profile-main {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
     }
@@ -51,17 +51,18 @@
     }
 
     .profile-labels {
-        grid-area: 2 / 2 / 5 / 3;
+        grid-area: 2 / 2 / 2 / 3;
         font-size: 20px;
         font-weight: bold;
     }
 
     .profile-data {
-        grid-area: 2 / 3 / 5 / 5;
+        grid-area: 2 / 3 / 2 / 5;
         font-size: 19px;
     }
 
     .profile-buttons {
+        grid-area: 3 / 2 / 3 / 3;
         padding-left: 25%;
     }
 </style>
