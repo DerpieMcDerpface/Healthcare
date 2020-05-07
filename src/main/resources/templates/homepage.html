@@ -9,6 +9,63 @@
     <link rel="stylesheet" href="fonts/web-fonts-with-css/css/fontawesome-all.min.css">
 </head>
 
+
+<body>
+
+<div class="main-homepage bg-lightblue">
+
+    <header class="header-homepage font-darkblue">
+        <h1>HEALTHCARE APP</h1>
+    </header>
+
+    <nav class="nav-homepage bg-brown">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+            <li><a href="#">Accueil</a></li>
+            <li> | </li>
+            <li><a href="#">News</a></li>
+            <li> | </li>
+            <li><a href="#">Conseils</a></li>
+            <li> | </li>
+            <li><a href="#">Sessions</a></li>
+            <li> | </li>
+            <li><a href="#">Médiathèque</a></li>
+            <li> | </li>
+            <li><a href="#">Poser une question</a></li>
+        </ul>
+    </nav>
+
+    <div id="div_homepage_short_news" th:each="news : ${newsList}">
+        <fieldset>
+            <a th:href="@{/news(id=${news.id})}"><h3 th:text="${news.title}"></h3></a>
+            <p th:text="${news.shortDescription}"></p><br>
+        </fieldset>
+    </div>
+
+    <div class="footer font-darkblue bg-brown">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Conseils</a></li>
+            <li><a href="#">Sessions</a></li>
+            <li><a href="#">Médiathèque</a></li>
+            <li><a href="#">Poser une question</a></li>
+        </ul>
+        <ul>
+            <p>Contacter un administrateur du site :</p>
+            <li><p>HealthCare Helpers</p></li>
+            <li><p>254 Avenue Réelle 67000 Strasbourg</p></li>
+            <li><p>Tel : 03.88.36.xx.xx</p></li>
+            <li><p>Mail : healthcar.help@admin.fr</p></li>
+        </ul>
+        <ul>
+            <h4><a href="#">Mentions légales</a></h4>
+        </ul>
+    </div>
+
+</div>
+</body>
+
 <style>
 @font-face
 {
@@ -115,80 +172,4 @@ grid-row-gap: 0px;
 
 </style>
 
-<body>
-
-<div class="main-homepage bg-lightblue">
-
-    <header class="header-homepage font-darkblue">
-        <h1>HEALTHCARE APP</h1>
-    </header>
-
-    <nav class="nav-homepage bg-brown">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i></a></li>
-            <li><a href="#">Accueil</a></li>
-            <li> | </li>
-            <li><a href="#">News</a></li>
-            <li> | </li>
-            <li><a href="#">Conseils</a></li>
-            <li> | </li>
-            <li><a href="#">Sessions</a></li>
-            <li> | </li>
-            <li><a href="#">Médiathèque</a></li>
-            <li> | </li>
-            <li><a href="#">Poser une question</a></li>
-        </ul>
-    </nav>
-
-    <section class="main-news-homepage">
-        <h2 th:text="${news.title}"></h2>
-        <img th:src="@{/.png}"/>
-        <p th:text="${news.longDescription}"></p>
-        <p th:text="${news.shortDescription}"></p>
-    </section>
-
-    <section class="secondary-news-homepage">
-        <img th:src="@{/.png}"/>
-        <h3 th:text="${news.title}"></h2>
-            <p th:text="${news.longDescription}"></p>
-            <p th:text="${news.shortDescription}"></p>
-    </section>
-
-    <aside>
-        <div class="special-news-homepage">
-        </div>
-
-        <div class="other-news-homepage">
-            <p th:text="${news.title}"></p>
-            <p th:text="${news.title}"></p>
-            <p th:text="${news.title}"></p>
-            <p th:text="${news.title}"></p>
-            <p th:text="${news.title}"></p>
-        </div>
-    </aside>
-
-
-    <div class="footer font-darkblue bg-brown">
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Conseils</a></li>
-            <li><a href="#">Sessions</a></li>
-            <li><a href="#">Médiathèque</a></li>
-            <li><a href="#">Poser une question</a></li>
-        </ul>
-        <ul>
-            <p>Contacter un administrateur du site :</p>
-            <li><p>HealthCare Helpers</p></li>
-            <li><p>254 Avenue Réelle 67000 Strasbourg</p></li>
-            <li><p>Tel : 03.88.36.xx.xx</p></li>
-            <li><p>Mail : healthcar.help@admin.fr</p></li>
-        </ul>
-        <ul>
-            <h4><a href="#">Mentions légales</a></h4>
-        </ul>
-    </div>
-
-</div>
-</body>
 </html>

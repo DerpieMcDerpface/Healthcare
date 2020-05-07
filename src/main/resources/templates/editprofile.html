@@ -38,7 +38,7 @@
         font-weight: bold;
     }
 
-    .profile-data {
+    .input-data {
         grid-area: 2 / 3 / 5 / 5;
         font-size: 19px;
     }
@@ -55,23 +55,20 @@
         Affichage du profil
     </div>
     <div class="profile-labels font-lightorange">
-        <label for="profile-name">Nom :</label><br><br>
         <label for="profile-surname">Prénom :</label><br><br>
+        <label for="profile-name">Nom :</label><br><br>
         <label for="profile-username">Nom d'utilisateur :</label><br><br>
         <label for="profile-email">Adresse e-mail :</label><br><br>
-        <label for="profile-password">Code de sécurité :</label><br><br>
     </div>
-    <div class="profile-data font-lightorange">
-        <p th:text="${user.surname}">User surname</p>
-        <p th:text="${user.name}">User name</p>
-        <p th:text="${user.username}">User username</p>
-        <p th:text="${user.email}">User email</p>
-        <p th:text="${user.securityCode}">User security code</p>
+    <div class="input-data font-lightorange">
+        <form method="post" th:action="@{/account/profile/edit}" th:object="${user}">
+            <input th:field="*{name}" name="user-name" id="user-name" th:placeholder="${user.surname}" type="text"><br><br>
+            <input th:field="*{surname}" name="user-surname" id="user-surname" th:placeholder="${user.name}" type="text"><br><br>
+            <input th:field="*{username}" name="user-username" id="user-username" th:placeholder="${user.username}" type="text"><br><br>
+            <input th:field="*{email}" name="user-email" id="user-email" th:placeholder="${user.email}" type="email"><br><br>
+            <input id="register-submit" name="user-submit" type="submit" value="Valider les modifications">
+        </form>
     </div>
-</div>
-<div class="profile-buttons">
-    <a href="#" role="button" th:href = "@{/account/profile/edit}">Modifier le profil</a>
-    <a href="#" role="button" th:href = "@{/account/profile/disable}">Désactiver le compte</a>
 </div>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class UserTest {
 
     @Before
     public void init() {
-        userTest = new User("name", "surname", "username", "email", "password");
+        userTest = new User("name", "surname", "username", "email", "password", true);
     }
 
     @Test
