@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
 
+<header class="header-homepage font-darkblue">
+    <h1>HEALTHCARE APP</h1>
+</header>
+
+<body class="bg-lightblue">
+    <div class="profile-main">
+        <div class="profile-title font-darkorange">
+            Affichage du profil
+        </div>
+        <div class="profile-labels font-lightorange">
+            <label for="profile-surname">Prénom :</label><br><br>
+            <label for="profile-name">Nom :</label><br><br>
+            <label for="profile-username">Nom d'utilisateur :</label><br><br>
+            <label for="profile-email">Adresse e-mail :</label><br><br>
+        </div>
+        <div class="input-data font-lightorange">
+            <form method="post" th:action="@{/account/profile/edit}" th:object="${user}">
+                <input th:field="*{name}" name="user-name" id="user-name" th:placeholder="${user.surname}"
+                    type="text"><br><br>
+                <input th:field="*{surname}" name="user-surname" id="user-surname" th:placeholder="${user.name}"
+                    type="text"><br><br>
+                <input th:field="*{username}" name="user-username" id="user-username" th:placeholder="${user.username}"
+                    type="text"><br><br>
+                <input th:field="*{email}" name="user-email" id="user-email" th:placeholder="${user.email}"
+                    type="email"><br><br>
+                <input id="register-submit" name="user-submit" type="submit" value="Valider les modifications">
+            </form>
+        </div>
+    </div>
+</body>
+
+<style>
     .font-lightorange {
         color: #FC600A;
+    }
+
+    .font-darkorange {
+        color: #B84E14;
     }
 
     .bg-darkorange {
@@ -15,7 +52,7 @@
     }
 
     .bg-lightblue {
-        background-color : #D4EDF7;
+        background-color: #D4EDF7;
     }
 
     .profile-main {
@@ -46,29 +83,6 @@
     .profile-buttons {
         padding-left: 25%;
     }
-
 </style>
 
-<body>
-<div class="profile-main">
-    <div class="profile-title font-darkorange">
-        Affichage du profil
-    </div>
-    <div class="profile-labels font-lightorange">
-        <label for="profile-surname">Prénom :</label><br><br>
-        <label for="profile-name">Nom :</label><br><br>
-        <label for="profile-username">Nom d'utilisateur :</label><br><br>
-        <label for="profile-email">Adresse e-mail :</label><br><br>
-    </div>
-    <div class="input-data font-lightorange">
-        <form method="post" th:action="@{/account/profile/edit}" th:object="${user}">
-            <input th:field="*{name}" name="user-name" id="user-name" th:placeholder="${user.surname}" type="text"><br><br>
-            <input th:field="*{surname}" name="user-surname" id="user-surname" th:placeholder="${user.name}" type="text"><br><br>
-            <input th:field="*{username}" name="user-username" id="user-username" th:placeholder="${user.username}" type="text"><br><br>
-            <input th:field="*{email}" name="user-email" id="user-email" th:placeholder="${user.email}" type="email"><br><br>
-            <input id="register-submit" name="user-submit" type="submit" value="Valider les modifications">
-        </form>
-    </div>
-</div>
-</body>
 </html>

@@ -4,12 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<style>
+<header class="header-homepage font-darkblue">
+    <h1>HEALTHCARE APP</h1>
+</header>
 
+<body class="bg-lightblue">
+    <div class="profile-main">
+        <div class="profile-title font-darkorange">
+            Affichage du profil
+        </div>
+        <div class="profile-labels font-lightorange">
+            <label for="profile-name">Nom :</label><br><br>
+            <label for="profile-surname">Prénom :</label><br><br>
+            <label for="profile-username">Nom d'utilisateur :</label><br><br>
+            <label for="profile-email">Adresse e-mail :</label><br><br>
+            <label for="profile-password">Code de sécurité :</label><br><br>
+        </div>
+        <div class="profile-data font-lightorange">
+            <p th:text="${user.surname}">User surname</p>
+            <p th:text="${user.name}">User name</p>
+            <p th:text="${user.username}">User username</p>
+            <p th:text="${user.email}">User email</p>
+        </div>
+    </div>
+    <div class="profile-buttons">
+        <a href="#" role="button" th:href="@{/account/profile/edit}">Modifier le profil</a>
+        <a href="#" role="button" th:href="@{/account/profile/disable}">Désactiver le compte</a>
+    </div>
+</body>
+
+
+<style>
     .font-lightorange {
         color: #FC600A;
+    }
+
+    .font-darkorange {
+        color: #B84E14;
     }
 
     .bg-darkorange {
@@ -17,7 +51,7 @@
     }
 
     .bg-lightblue {
-        background-color : #D4EDF7;
+        background-color: #D4EDF7;
     }
 
     .profile-main {
@@ -50,30 +84,5 @@
     }
 
 </style>
-
-<body class="bg-lightblue">
-<div class="profile-main">
-    <div class="profile-title font-darkorange">
-        Affichage du profil
-    </div>
-    <div class="profile-labels font-lightorange">
-        <label for="profile-name">Nom :</label><br><br>
-        <label for="profile-surname">Prénom :</label><br><br>
-        <label for="profile-username">Nom d'utilisateur :</label><br><br>
-        <label for="profile-email">Adresse e-mail :</label><br><br>
-        <label for="profile-password">Code de sécurité :</label><br><br>
-    </div>
-    <div class="profile-data font-lightorange">
-        <p th:text="${user.surname}">User surname</p>
-        <p th:text="${user.name}">User name</p>
-        <p th:text="${user.username}">User username</p>
-        <p th:text="${user.email}">User email</p>
-    </div>
-</div>
-<div class="profile-buttons">
-    <a href="#" role="button" th:href = "@{/account/profile/edit}">Modifier le profil</a>
-    <a href="#" role="button" th:href = "@{/account/profile/disable}">Désactiver le compte</a>
-</div>
-</body>
 
 </html>
