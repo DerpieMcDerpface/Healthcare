@@ -10,59 +10,67 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="index-main bg-lightblue">
+<body class="bg-lightblue">
+<br><br>
+<div class="index-main">
+    <div class="index-title font-darkorange">Healthcare App</div>
+    <div class="index-fields">
+        <form method="POST" th:action="@{/connect}">
+            <label for="index-username" class="index-labels">Nom d'utilisateur</label><br>
+            <input type="text" id="index-username" placeholder="Entrer le nom d'utilisateur" name="username" required><br><br>
+            <label for="index-password" class="index-labels">Mot de passe</label><br>
+            <input type="password" id="index-password" placeholder="Entrer le mot de passe" name="password" required><br><br>
+            <input id="index-submit" name="index-submit" type="submit" value="Connexion" >
+        </form>
+    </div>
 
-<div class="index-title font-darkorange">
-    Connexion
+    <div class="index-pass-btn">
+        <br><br><br>
+        <a th:href="@{/password/reset}" class="font-darkblue">Mot de passe oublié ?</a>
+    </div>
+    <div class="index-create-btn">
+        <br><br><br>
+        <a th:href="@{/account/create}" class="font-darkblue">Créer un compte</a>
+    </div>
 </div>
-
-<div class="index-labels font-lightorange">
-    <label for="index-username" class="index-labels">Nom d'utilisateur</label><br><br>
-    <label for="index-password" class="index-labels">Mot de passe</label><br><br>
-</div>
-
-<div class="index-inputs"></div>
-<form method="POST" th:action="@{/connect}">
-    <input th:field="*{username}" type="text" name="index-username" id="index-username" placeholder="Entrer le nom d'utilisateur" name="username" required><br><br>
-    <input th:field="*{password}" type="password" name="index-password" id="index-password" placeholder="Entrer le mot de passe" name="password" required><br><br>
-    <input id="index-submit" name="index-submit" type="submit" value="Connexion" >
-</form>
-</div>
-
-<div id="index-other">
-    <a th:href="@{/account/create}" class="font-darkblue">Créer un compte</a>
-    <a th:href="@{/password/reset}" class="font-darkblue">Mot de passe oublié ?</a>
-</div>
-
 </body>
 
 <style>
-    .index-main {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    .index-title {
-        grid-area: 1 / 2 / 2 / 4;
-        font-size: 40px;
-        font-weight: bold;
-    }
-    .index-labels {
-        grid-area: 2 / 2 / 3 / 3;
-        font-size: 20px;
-        font-weight:bold;
-    }
-    .index-inputs {
-        grid-area: 2 / 3 / 3 / 4;
-        font-size: 19px;
-    }
-    .index-other {
-        grid-area: 3 / 2 / 4 / 3;
-        font-size: 16px;
-    }
+.index-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align:center;
+}
 
-    </style>
+.index-title {
+    font-size: 40px;
+    font-weight: bold;
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+.index-fields {
+
+    grid-area: 2 / 2 / 4 / 4;
+}
+
+.index-labels {
+    font-size: 20px;
+    font-weight:bold;
+}
+
+.index-pass-btn {
+    font-size:14px;
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.index-create-btn {
+    font-size:14px;
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+</style>
 
 </html>

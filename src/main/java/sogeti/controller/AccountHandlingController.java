@@ -25,10 +25,10 @@ public class AccountHandlingController<user> {
     }
 
     @PostMapping("/create")
-    public ModelAndView saveUser(@ModelAttribute("user") User user, Model model) {
+    public RedirectView saveUser(@ModelAttribute("user") User user, Model model) {
         user.setActivated(true);
         service.save(user);
-        return new ModelAndView("index.html");
+        return new RedirectView("/connect");
     }
 
     @GetMapping("/profile")

@@ -38,4 +38,14 @@ public class UserService {
     public void setAuthUser(User user) {
         authUser = user;
     }
+
+    public void updateUserSecurityCode(User user, String securityCode) {
+        user.setSecurityCode(securityCode);
+        userRepository.save(user);
+    }
+
+    public void updateUserPassword(User user, String password) {
+        user.setPassword(password);
+        userRepository.save(user);
+    }
 }
