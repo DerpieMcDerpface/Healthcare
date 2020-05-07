@@ -74,14 +74,14 @@ public class AccountHandlingController<user> {
     }
 
     @GetMapping("/profile/disable")
-    public ModelAndView disableProfile(Model model) {
-        User user = service.getAuthUser();
-        if (user == null) {
-            return new ModelAndView("404.html");
+    public RedirectView disableProfile(Model model) {
+        if (service.getAuthUser()==null) {
+            return new RedirectView("/profile/disable");
         } else {
+            User user = service.getAuthUser();
             user.setActivated(false);
             service.save(user);
-            return new ModelAndView("index.html");
+            return new RedirectView("/connect");
         }
     }
 
